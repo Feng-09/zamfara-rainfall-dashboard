@@ -107,9 +107,9 @@ function App() {
 
       const averageAnnual = yearlyTotals.reduce((a, b) => a + b, 0) / yearlyTotals.length;
 
-      if (averageAnnual < 700) {
+      if (averageAnnual < 770) {
         drought.push(lgaName);
-      } else if (averageAnnual > 900) {
+      } else if (averageAnnual > 950) {
         flood.push(lgaName);
       }
     });
@@ -195,9 +195,9 @@ function App() {
               <div className='flex flex-col items-start gap-1'>
                 <p className='font-montserrat mb-1'>Drought Prone LGAs</p>
                 {droughtLGAs.length > 0 ? droughtLGAs.map((item, id) => (
-                  <div className='flex gap-2 items-center'>
+                  <div className='flex gap-2 items-center' key={id}>
                     <div className='bg-red-400 opacity-60 rounded-full h-2 w-2'></div>
-                    <p key={id} className='font-montserrat text-sm'>{item}</p>
+                    <p className='font-montserrat text-sm'>{item}</p>
                   </div>
                 )) : (
                   <p className='font-montserrat text-sm text-start'>There are no drought prone LGAs in the data provided</p>
@@ -206,9 +206,9 @@ function App() {
               <div className='flex flex-col items-start gap-1'>
                 <p className='font-montserrat mb-1'>Flood Prone LGAs</p>
                 {floodLGAs.length > 0 ? floodLGAs.map((item, id) => (
-                  <div className='flex gap-2 items-center'>
+                  <div className='flex gap-2 items-center' key={id}>
                     <div className='bg-blue-400 opacity-60 rounded-full h-2 w-2'></div>
-                    <p key={id} className='font-montserrat text-sm'>{item}</p>
+                    <p className='font-montserrat text-sm'>{item}</p>
                   </div>
                 )) : (
                   <p className='font-montserrat text-sm text-start'>There are no flood prone LGAs in the data provided</p>
